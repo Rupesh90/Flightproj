@@ -1,0 +1,34 @@
+we applied filter in viewset=>
+
+@api_view(['POST'])
+class Find_flights(request):
+       flights=Flight.objects.filter(departureCity=request.data['departureCity'],arrivalCity=request.data['arrivalCity'],dateofDeparture=request.data['dateofDeparture'])
+       serializer=FlightSerializer(flights,many=True)
+       return Response(serializer.data)
+
+
+we calll this code not in Router->we call it in normal view.
+
+from flightapp import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/services/',views.Find_flights)
+]
+
+
+
+includeing code(viewset and filter) =>
+
+from flightapp import views
+router=DefaultRouter()
+router.register('flights',views.FlightViewSet)
+router.register('passenger',views.PassengerViewSet)
+router.register('reservations',views.ReservationViewSet)
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/',include(router.urls)),
+    path('api/services/',views.Find_flights)
+]
+
