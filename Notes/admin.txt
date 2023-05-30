@@ -1,0 +1,16 @@
+admin =>
+
+username -> django
+pass ->rupesh@123
+
+_______________________________________
+
+user 1 ->
+
+appuser1
+Test@123
+
+
+USER 2 ->
+appuser2
+Test@890

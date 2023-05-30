@@ -1,0 +1,14 @@
+Singals in django ->
+whenver action like - post__save/post_delete on the model object it could be our model object or django object like -token auth,user in admin.
+
+those event/signlas can be handled.
+=django send the signals to the application. and we can be the receiver.
+
+>we created tokens in admiin by easyway not by coding,
+>but now create signal to create auto token by code
+
+we write the code -> by ourself in models.py
+
+from django.db.models.signals import post_save
+
+from rest_framework.authto
